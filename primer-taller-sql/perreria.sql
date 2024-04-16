@@ -69,6 +69,20 @@ CREATE TABLE registro(
 	FOREIGN KEY (id_perro) REFERENCES perros(id_perro)
 );
 
+# Asignacion de usuarios
+
+# Crear user
+CREATE USER 'veterinario'@'localhost' IDENTIFIED  BY '123456';
+
+# Asignar privilegios en la tabla clientes
+GRANT INSERT ON perreteria.clientes TO 'veterinario'@'localhost';
+
+# Prueba de privilegios para veterinario
+INSERT INTO
+    clientes (id_cliente, nombre_cliente, telefono_cliente, correo_cliente, direccion_cliente, ocupacion_cliente, edad_cliente, observacion)
+VALUES
+    ('U013', 'Andres Perez', '+1234567890', 'andres@example.com', 'Cll Principal 123', 'Estudiante', 25, 'Cliente habitual');
+
 # DATA
 
 INSERT INTO
